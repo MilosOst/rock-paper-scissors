@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            choices = ['Rock', 'Paper', 'Scissors'];
+            selection = Math.ceil(Math.random() * 3) - 1;
+            return choices[selection];
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+
+            // Immediately check for tie
+            if (playerSelection === computerSelection.toLowerCase()) {
+                return 'Tie';
+            }
+            
+            if (playerSelection === 'rock') {
+                if (computerSelection === 'Paper') {
+                    return 'You Lose! Paper beats Rock';
+                }
+                else {
+                    return 'You Win! Rock beats Scissors';
+                }
+            }
+            else if (playerSelection === 'paper') {
+                if (computerSelection === 'Rock') {
+                    return 'You Win! Paper beats Rock';
+                }
+                else {
+                    return 'You Lose! Paper loses to Scissors';
+                }
+            }
+            // Only remaining option is playerSelection === 'scissors'
+            else {
+                if (computerSelection === 'Rock') {
+                    return 'You Lose! Rock beats Scissors';
+                }
+                else if (computerSelection === 'Paper') {
+                    return 'You Win! Scissors beats Paper';
+                }
+                else {
+                    return 'Tie! Scissors ties with Scissors';
+                }
+            }
+        }
+
+        function game() {
+            userScore = 0;
+            cpuScore = 0;
+
+            for (let i = 0; i < 5; i++) {
+                userChoice = prompt('Choose one of: Rock, Paper, Scissors');
+                result = playRound(userChoice, computerPlay());
+                console.log(result);
+
+                if (result.includes('You Win!')) {
+                    userScore++;
+                }
+                else if (result.includes('You Lose!')) {
+                    cpuScore++;
+                }
+            }
+
+            // Calculate final results
+            if (userScore > cpuScore) {
+                console.log(`You won ${userScore} to ${cpuScore}`);
+            }
+            else if (userScore === cpuScore) {
+                console.log(`You tied ${userScore} to ${userScore}`);
+            }
+            else {
+                console.log(`You lost ${cpuScore} to ${userScore}`);
+            }
+        }
+    </script>
+</body>
+</html>
