@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#111720;
+    font-family: 'Macondo', sans-serif;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+#header-title {
+    font-family: 'Macondo', cursive;
+    color: rgb(104, 169, 245);
+    font-size: 40px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:  40px;
+}
+
+.info {
+    text-align: center;
+    font-family: 'Macondo', sans-serif;
+    font-size: 18px;
+    color: rgb(225, 215, 215)
+}
+
+.lives-box {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    font-family: 'Macondo', cursive;;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: whitesmoke;
+}
+
+.user-lives-box, .cpu-lives-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 2px double lightblue;
+    padding: 15px;
+    text-align: center;
+}
+
+.lives-label {
+    margin: 10px;
+}
+
+.lives {
+    font-size: 28px;
+}
+
+.choices-box {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+}
+
+.btn {
+    padding: 10px;
+    border-radius: 10px;
+    width: 160px;
+    height: 160px;
+}
+
+#rock, #paper, #scissors {
+    font-size: 70px;
+}
+
+.result {
+    color: white;
+}
+
+.footer {
+    padding: 10px;
+    color: white;
+}
