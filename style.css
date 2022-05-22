@@ -86,7 +86,9 @@ body {
     font-size: 70px;
 }
 
-.result {
+.results {
+    margin: 60px;
+    font-size: 28px;
     color: white;
 }
 
