@@ -14,6 +14,10 @@ body {
     font-family: 'Macondo', sans-serif;
 }
 
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .header {
     width: 100%;
     display: flex;
@@ -84,6 +88,12 @@ body {
     width: 160px;
     height: 160px;
     font-size: 70px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover, .close-dialog:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 1px #fff;
 }
 
 .results {
@@ -96,3 +106,28 @@ body {
     padding: 10px;
     color: white;
 }
+
+dialog {
+    margin: auto;
+    border-radius: 16px;
+    border: 2px solid lightgray;
+    background-color: #222831;
+    color: white;
+    font-size: 22px;
+
+}
+
+.modal {
+    align-items: center;
+    padding: 40px 60px;
+    text-align: center;
+}
+.close-dialog {
+    padding: 10px 20px;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 16px;
+    margin-top: 8px;
+    transition: all 0.1s ease-in;
+}
+

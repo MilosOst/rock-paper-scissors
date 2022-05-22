@@ -81,8 +81,16 @@ function handleMove(button) {
 
     if (!userLives || !cpuLives) {
         console.log('Game Over')
+        showEndGame();
+
         resetGame();
     };
+}
+
+
+function updateLives() {
+    const userLivesElement = document.querySelector('.lives');
+    const cpuLivesElement = document.querySelector('');
 }
 
 
@@ -93,6 +101,29 @@ function resetGame() {
     resultElement.textContent = '';
 }
 
+function showEndGame() {
+    const endGameMessage = document.querySelector('#final-result');
+    
+    endGameMessage.textContent = (!userLives) ? 'You Lost!' : 'You Won!';
 
-playerButtons = [...document.querySelectorAll('.choices-box .btn')];
+    modal.showModal();
+}
+
+
+const playerButtons = [...document.querySelectorAll('.choices-box .btn')];
 playerButtons.forEach((button) => button.addEventListener('click', () => handleMove(button)));
+
+const openModal = document.querySelector('[data-open-modal]');
+const closeModal = document.querySelector('[data-close-modal]');
+const modal = document.querySelector('[data-modal-new]');
+
+openModal.addEventListener('click', () => modal.showModal());
+
+closeModal.addEventListener('click', () => modal.close());
+
+// Allow modal to close on click outside
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.close()
+    }
+});
