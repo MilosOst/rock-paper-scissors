@@ -53,24 +53,10 @@ function playRound(playerSelection) {
     }
 }
 
-function game() {
-
-
-    // Calculate final results
-    if (userScore > cpuScore) {
-        console.log(`You won ${userScore} to ${cpuScore}`);
-    }
-    else if (userScore === cpuScore) {
-        console.log(`You tied ${userScore} to ${userScore}`);
-    }
-    else {
-        console.log(`You lost ${cpuScore} to ${userScore}`);
-    }
-}
-
 function handleMove(button) {
     let playerMove = button.id.replace('Btn', ''); // Converts move to one of ('rock', 'paper', 'scissors)
     let result = playRound(playerMove);
+    updateLives();
 
     const resultElement = document.querySelector('.results')
     resultElement.textContent = result;
@@ -82,15 +68,16 @@ function handleMove(button) {
     if (!userLives || !cpuLives) {
         console.log('Game Over')
         showEndGame();
-
-        resetGame();
     };
 }
 
 
 function updateLives() {
-    const userLivesElement = document.querySelector('.lives');
-    const cpuLivesElement = document.querySelector('');
+    const userLivesElement = document.querySelector('#user-lives');
+    const cpuLivesElement = document.querySelector('#cpu-lives');
+
+    userLivesElement.textContent = '💙'.repeat(userLives);
+    cpuLivesElement.textContent = '💙'.repeat(cpuLives);
 }
 
 
@@ -99,6 +86,7 @@ function resetGame() {
     cpuLives = 5;
     const resultElement = document.querySelector('.results')
     resultElement.textContent = '';
+    updateLives();
 }
 
 function showEndGame() {
@@ -113,17 +101,17 @@ function showEndGame() {
 const playerButtons = [...document.querySelectorAll('.choices-box .btn')];
 playerButtons.forEach((button) => button.addEventListener('click', () => handleMove(button)));
 
-const openModal = document.querySelector('[data-open-modal]');
 const closeModal = document.querySelector('[data-close-modal]');
 const modal = document.querySelector('[data-modal-new]');
-
-openModal.addEventListener('click', () => modal.showModal());
 
 closeModal.addEventListener('click', () => modal.close());
 
 // Allow modal to close on click outside
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.close()
+        modal.close();
+        resetGame();
     }
 });
+
+closeModal.addEventListener('click', resetGame);
