@@ -23,6 +23,7 @@ button {
     width: 100%;
     display: flex;
     justify-content: center;
+    text-align: center;
     padding: 40px 0;
 }
 
@@ -108,6 +109,7 @@ button {
     margin: 60px;
     font-size: 28px;
     color: white;
+    text-align: center;
 }
 
 .footer {
@@ -157,3 +159,35 @@ dialog {
     transform: rotate(-720deg);
 }
 
+
+@media screen and (max-height:700px), (max-width: 400px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    .btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    #rock, #paper, #scissors {
+        font-size: 35px;
+    }
+
+    #user-lives, #cpu-lives {
+        font-size: 18px;
+    }
+
+    .user-lives-box, .cpu-lives-box {
+        width: 167px;
+        height: 90px;
+    }
+
+    .info {
+        font-size: 16px;
+    }
+
+    .results {
+        font-size: 20px;
+    }
+}

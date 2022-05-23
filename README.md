@@ -8,5 +8,4 @@ You both start with 5 lives, and the first to run out loses.
 
 
 --- Future Improvements/Ideas ---
-- Improve sizing on mobile devices, currently difficult to see all necessary information on some
 - Add animation for when User/CPU loses a life
