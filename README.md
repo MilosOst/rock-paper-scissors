@@ -9,3 +9,6 @@ You both start with 5 lives, and the first to run out loses.
 
 --- Future Improvements/Ideas ---
 - Add animation for when User/CPU loses a life
+
+
+[Live Version](https://milosost.github.io/rock-paper-scissors/)
